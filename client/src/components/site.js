@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
 import { Link } from 'react-router-dom';
-import classNames from 'classnames';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const LAUNCH_QUERY = gql`
     query LaunchQuery($flight_number: Int!) {
@@ -43,11 +43,15 @@ export class Site extends Component {
                                     site_name_long,
                                 }
                             } = data.launch;
+                            let launch_icon = data.launch.launch_success ? "check-circle" : "times-circle";
+                            
                             return <div>
-                                <h4 className="my-3">Launch Site details</h4>
+                                <h4 className="my-3">
+                                    <FontAwesomeIcon icon={launch_icon} className={launch_icon} /> Launch Site details
+                                </h4>
                                 <ul className="list-group">
                                     <li className="list-group-item">
-                                        {launch_success ? "Success" : "Failed"}
+                                         {launch_success ? " Success" : " Failed"}
                                     </li>
                                     <li className="list-group-item">
                                         Launch ID: {site_id}

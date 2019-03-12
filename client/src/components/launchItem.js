@@ -2,6 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import Moment from 'react-moment';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const LaunchItem = ({
     launch: {
@@ -11,6 +12,7 @@ const LaunchItem = ({
         launch_success
     }
 }) => {
+    let launch_icon = launch_success ? "check-circle" : "times-circle";
     console.log(flight_number)
     return (
         <div className='card card-body mb-3'>
@@ -20,7 +22,7 @@ const LaunchItem = ({
                         'text-success': launch_success,
                         'text-danger': !launch_success,
                     })}>
-                            {mission_name}
+                            {mission_name} <FontAwesomeIcon icon={launch_icon} className={launch_icon} />
                         </span>
                     </h4>
                     <p>Date: <Moment format="YYYY-MM-DD HH:mm">{launch_date_local}</Moment></p>

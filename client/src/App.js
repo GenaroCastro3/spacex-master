@@ -5,12 +5,17 @@ import { BrowserRouter as Router, Route} from 'react-router-dom';
 import Launches from './components/launches';
 import Launch from './components/launch';
 import Site from './components/site';
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faCheckCircle, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 
 import './App.css';
 
 const client = new ApolloClient({
     uri: '/graphql'
 });
+
+library.add(faCheckCircle);
+library.add(faTimesCircle);
 
 class App extends Component {
     render() {

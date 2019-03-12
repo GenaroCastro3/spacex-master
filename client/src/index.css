@@ -12,3 +12,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+svg.check-circle {
+  color: green;
+  font-size: 1.3em;
+}
+
+svg.times-circle {
+  color: red;
+  font-size: 1.3em;
+}
